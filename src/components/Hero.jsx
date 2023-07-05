@@ -6,7 +6,7 @@ import GradientTwo from '../atoms/GradientTwo'
 
 export default function Hero() {
   return (
-    <section className="relative isolate px-6 pt-14 lg:px-8">
+    <section className="bg-white relative isolate px-6 pt-14 lg:px-8">
         <GradientOne />
         <div className="mx-auto max-w-xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
@@ -30,6 +30,6 @@ export default function Hero() {
           </div>
         </div>
         <GradientTwo />
-    </section>  
+    </section>
   )
 }

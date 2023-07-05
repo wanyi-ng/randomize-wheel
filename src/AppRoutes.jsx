@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 
 import Landing from './pages/Landing'
 import CreateWheel from './pages/CreateWheel'
+
+import TermsAndConditions from './pages/TermsAndConditions'
 import Error404 from './pages/Error404'
 
 // import Test from './pages/Test'
@@ -16,6 +18,8 @@ export default function AppRoutes() {
     <Routes>
       <Route path='/' element={<Landing/>} />
       <Route path='/create' element={<CreateWheel />} />
+
+      <Route path='/terms-and-conditions' element={<TermsAndConditions />} />
 
       <Route path='*' element={<Error404/>} />
 
