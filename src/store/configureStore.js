@@ -1,30 +1,34 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { persistStore, persistReducer,  FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER }from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import logger from 'redux-logger'
+import { configureStore } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore,
+  // FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,
+} from "redux-persist";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 
-import wheelReducer from './reducers/wheelSlice';
+import wheelReducer from "./reducers/wheelSlice";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, wheelReducer)
+const persistedReducer = persistReducer(persistConfig, wheelReducer);
 
 export const store = configureStore({
   reducer: {
-    store: persistedReducer,
-    // other reducers here:
+    wheels: persistedReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [ FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER ]
-    }
-  }).concat(logger),
-  devTools: process.env.NODE_ENV !== 'production',
-})
+  // middleware: (getDefaultMiddleware) =>
+  // getDefaultMiddleware({
+  //   serializableCheck: {
+  //     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  //   },
+  // }).concat(logger),
+  middleware: [thunk, logger],
+  devTools: process.env.NODE_ENV !== "production",
+});
 
-console.log('store.getState(): ', store.getState())
+export const persistor = persistStore(store);
 
-export const persistor = persistStore(store)
+console.log(store.getState());
