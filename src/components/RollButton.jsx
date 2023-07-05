@@ -13,7 +13,7 @@ export default function RollButton({ wheelId }) {
   return (
     <button
       type='button'
-      className="btn btn-primary"
+      className="btn btn-primary mt-4"
       aria-label='Randomly select one of your options'
       onClick={handleSelectRandomOption}
     >
