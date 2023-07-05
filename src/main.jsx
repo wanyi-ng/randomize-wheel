@@ -8,8 +8,6 @@ import './index.css'
 
 import { store, persistor } from './store/configureStore.js'
 
-import Navbar from './components/Navbar.jsx'
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
