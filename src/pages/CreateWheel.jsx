@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import EmptyState from '../components/EmptyState';
 import AddWheel from '../components/AddWheel';
@@ -11,7 +11,7 @@ export default function CreateWheel() {
 
   return (
     <main className='bg-white min-h-screen'>
-      {wheels.length < 1 ? (
+      {wheels.length < 0 ? (
         <EmptyState />
       ) : (
         <section className='py-32 flex flex-col justify-center items-center'>
@@ -19,6 +19,7 @@ export default function CreateWheel() {
               <p className='leading-8 text-gray-900'>
                 You have created <span className='font-semibold underline underline-offset-4'>{`${wheels.length}`} wheels</span> so far
               </p>
+              {/* memo() */}
               <span className='flex justify-center items-center gap-4'>
                 <AddWheel />
                 <DeleteAllWheels />

@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import RollButton from './RollButton'
-import { PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { TrashIcon } from '@heroicons/react/24/outline'
 import { deleteWheel } from '../store/reducers/wheelSlice'
+import UpdateWheel from './UpdateWheel'
 
 export default function Wheel({ wheel }) {
 
@@ -22,12 +23,7 @@ export default function Wheel({ wheel }) {
           <div className='flex justify-between'>
             <h2 className="card-title">{wheel.name}</h2>
             <div className='space-x-2 '>
-              <button className='btn btn-secondary text-secondary-content' type='button' aria-label='Edit wheel'>
-                <span className='inline-flex justify-center items-center'>
-                  <PencilSquareIcon className='w-5 h-5' />
-                  {/* Edit */}
-                </span>
-              </button>
+              <UpdateWheel wheel={wheel} />
               <button className='btn btn-accent text-accent-content' type='button' aria-label='Delete wheel' onClick={handleDeleteWheel}>
                 <span className='inline-flex justify-center items-center'>
                   <TrashIcon className='w-5 h-5' />
