@@ -6,15 +6,18 @@ import GradientOne from "../atoms/GradientOne";
 import GradientTwo from "../atoms/GradientTwo";
 
 export default function Hero() {
-  let ref = useRef(null);
+  let heroRef = useRef(null);
   let { scrollYProgress } = useScroll({
-    target: ref,
+    target: heroRef,
     offset: ["start start", "end start"],
   });
   let y = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
 
   return (
-    <section ref={ref} className="bg-white relative isolate px-6 pt-14 lg:px-8">
+    <section
+      ref={heroRef}
+      className="bg-white relative isolate px-6 pt-14 lg:px-8"
+    >
       <motion.div style={{ y }}>
         <GradientOne />
         <div className="mx-auto max-w-xl py-32 sm:py-48 lg:py-56">
