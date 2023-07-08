@@ -11,7 +11,7 @@ export default function CreateWheel() {
 
   return (
     <main className='bg-white min-h-screen'>
-      {wheels.length < 0 ? (
+      {wheels.length <= 0 ? (
         <EmptyState />
       ) : (
         <section className='py-32 flex flex-col justify-center items-center'>
