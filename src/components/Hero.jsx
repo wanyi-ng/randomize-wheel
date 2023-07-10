@@ -1,18 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-import GradientOne from '../atoms/GradientOne'
-import GradientTwo from '../atoms/GradientTwo'
+import GradientOne from "../atoms/GradientOne";
+import GradientTwo from "../atoms/GradientTwo";
 
 export default function Hero() {
+  let heroRef = useRef(null);
+  let { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  let y = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+
   return (
-    <section className="bg-white relative isolate px-6 pt-14 lg:px-8">
+    <section
+      ref={heroRef}
+      className="bg-white relative isolate px-6 pt-14 lg:px-8"
+    >
+      <motion.div style={{ y }}>
         <GradientOne />
         <div className="mx-auto max-w-xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Randomizer Wheel</h1>
-            <p className='mt-10 text-lg leading-8 text-gray-600'>
-              Add your options, spin the wheel, <br/>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              Randomizer Wheel
+            </h1>
+            <p className="mt-10 text-lg leading-8 text-gray-600">
+              Add your options, spin the wheel, <br />
               and let randomness guide your choices.
               {/* Randomizer Wheel takes the stress out of tough decision making by injecting a thrilling dose of unpredictability into your choices! */}
             </p>
@@ -23,13 +37,17 @@ export default function Hero() {
               >
                 Get started
               </Link>
-              <a href="#features" className="text-sm font-semibold leading-6 text-gray-900">
+              <a
+                href="#features"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
                 Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
         </div>
         <GradientTwo />
+      </motion.div>
     </section>
-  )
+  );
 }

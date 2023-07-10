@@ -33,9 +33,23 @@ const wheelSlice = createSlice({
       const wheelId = action.payload;
       state.wheels = state.wheels.filter((w) => w.id !== wheelId);
     },
+    updateWheel: (state, action) => {
+      const { id, name, options, rolledOption } = action.payload;
+      const wheel = state.wheels.find((w) => w.id === id);
+      if (wheel) {
+        wheel.name = name;
+        wheel.options = options;
+        wheel.rolledOption = rolledOption || null;
+      }
+    },
   },
 });
 
-export const { addWheel, deleteAllWheels, selectRandomOption, deleteWheel } =
-  wheelSlice.actions;
+export const {
+  addWheel,
+  deleteAllWheels,
+  selectRandomOption,
+  deleteWheel,
+  updateWheel,
+} = wheelSlice.actions;
 export default wheelSlice.reducer;
