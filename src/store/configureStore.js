@@ -6,6 +6,7 @@ import {
   // FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,
 } from "redux-persist";
 import thunk from "redux-thunk";
+import { createLogger } from "redux-logger";
 
 import wheelReducer from "./reducers/wheelSlice";
 
@@ -19,7 +20,6 @@ const persistedReducer = persistReducer(persistConfig, wheelReducer);
 let middleware = [thunk];
 
 if (process.env.NODE_ENV !== "production") {
-  const { createLogger } = require("redux-logger");
   const logger = createLogger();
   middleware = [...middleware, logger];
 }
