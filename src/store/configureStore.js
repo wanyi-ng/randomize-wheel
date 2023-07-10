@@ -1,8 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import {
-  persistReducer,
-  persistStore,
+import { persistReducer, persistStore,
   // FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,
 } from "redux-persist";
 import logger from "redux-logger";
@@ -32,3 +30,5 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+console.log(store.getState());
