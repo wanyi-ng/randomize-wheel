@@ -3,7 +3,6 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore,
   // FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,
 } from "redux-persist";
-import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 import wheelReducer from "./reducers/wheelSlice";
@@ -15,6 +14,14 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, wheelReducer);
 
+let middleware = [thunk];
+
+if (process.env.NODE_ENV !== "production") {
+  const { createLogger } = require("redux-logger");
+  const logger = createLogger();
+  middleware = [...middleware, logger];
+}
+
 export const store = configureStore({
   reducer: {
     wheels: persistedReducer,
@@ -25,7 +32,7 @@ export const store = configureStore({
   //     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
   //   },
   // }).concat(logger),
-  middleware: [thunk, logger],
+  middleware,
   devTools: process.env.NODE_ENV !== "production",
 });
 
