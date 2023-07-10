@@ -31,16 +31,16 @@ const features = [
 ];
 
 export default function Features() {
-  let ref = useRef(null);
+  let featuresRef = useRef(null);
   let { scrollYProgress } = useScroll({
-    target: ref,
+    target: featuresRef,
     offset: ["start start", "end start"],
   });
   let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
     <section
-      ref={ref}
+      ref={featuresRef}
       id="features"
       className="bg-white overflow-hidden py-24 sm:py-32"
     >
