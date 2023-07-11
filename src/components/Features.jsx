@@ -4,30 +4,27 @@ import {
   ArrowPathRoundedSquareIcon,
   CloudArrowDownIcon,
 } from "@heroicons/react/24/solid";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 
 const features = [
   {
     name: "Customizable Wheels",
     description:
       "Create your own personalized configurations for any decision-making scenario.",
-    // From choosing a restaurant for dinner to picking a vacation destination, the possibilities are endless.
     icon: ChartPieIcon,
   },
   {
     name: "Random Selection",
     description:
       "With a simple spin, Randomizer Wheel will randomly select an option from your customized wheel.",
-    // Let Randomizer Wheel take the burden of decision-making off your shoulders. , injecting excitement and unpredictability into your choices
     icon: ArrowPathRoundedSquareIcon,
   },
-  {
-    name: "Save and share",
-    description:
-      "Save your favorite wheel configurations for future use and share them with friends and family.",
-    // Whether you\'re collaborating on a group project or planning a surprise activity, Randomizer Wheel makes decision-making a collaborative and engaging experience.
-    icon: CloudArrowDownIcon,
-  },
+  // {
+  //   name: "Save and share",
+  //   description:
+  //     "Save your favorite wheel configurations for future use and share them with friends and family.",
+  //   icon: CloudArrowDownIcon,
+  // },
 ];
 
 export default function Features() {

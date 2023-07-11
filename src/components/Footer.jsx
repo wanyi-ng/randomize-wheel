@@ -1,12 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <footer className="w-full bg-indigo-700 py-12">
       <div className="container mx-auto xl:flex text-center xl:text-left lg:text-left">
         <div className="xl:w-3/6 sm:w-full mb-6 xl:mb-0">
-            <p className="text-white text-center xl:text-left">2023 Randomizer Wheel. All Rights Reserved</p>
+          <p className="text-white text-center xl:text-left">
+            &copy; 2023 Randomizer Wheel. All Rights Reserved
+          </p>
         </div>
         <div className="xl:w-3/6 sm:w-full">
           <ul className="xl:flex lg:flex md:flex sm:flex justify-around">
@@ -14,7 +16,9 @@ export default function Footer() {
               <Link to="/terms-and-conditions">Terms of service</Link>
             </li>
             <li className="text-white hover:text-gray-300 mb-3 xl:mb-0 lg:mb-0 md:mb-0 sm:mb-0">
-              <Link to="/terms-and-conditions#privacyPolicy">Privacy Policy</Link>
+              <Link to="/terms-and-conditions#privacyPolicy">
+                Privacy Policy
+              </Link>
             </li>
             <li className="text-white hover:text-gray-300 mb-3 xl:mb-0 lg:mb-0 md:mb-0 sm:mb-0">
               <Link to="/sitemap">Sitemap</Link>
@@ -32,5 +36,5 @@ export default function Footer() {
     //   <Link className="link link-secondary">Contact</Link>
     //   </div>
     // </footer>
-  )
+  );
 }
