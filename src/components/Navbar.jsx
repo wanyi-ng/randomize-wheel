@@ -22,8 +22,8 @@ export default function Navbar() {
             <span className="sr-only">Randomizer Wheel</span>
             <img
               className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
+              src="../src/assets/logo_indigo.svg"
+              alt="Randomizer Wheel logo"
             />
           </Link>
         </div>
@@ -72,8 +72,8 @@ export default function Navbar() {
               <span className="sr-only">Randomizer Wheel</span>
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
+                src="../src/assets/logo_indigo.svg"
+                alt="logo"
               />
             </a>
             <button
