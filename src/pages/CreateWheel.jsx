@@ -29,7 +29,7 @@ export default function CreateWheel() {
             </span>
           </div>
 
-          <div className="mt-24 max-w-screen-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-content-center gap-4 xl:gap-x-12">
+          <div className="mt-24 max-w-7xl flex flex-col justify-center md:flex-row md:flex-wrap gap-4">
             {wheels.map((wheel) => (
               <Wheel
                 key={wheel.id}
