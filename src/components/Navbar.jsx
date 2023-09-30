@@ -6,7 +6,6 @@ import Logo from "../atoms/Logo";
 
 const navigation = [
   { name: "Features", href: "/#features" },
-  { name: "About", href: "/about" },
 ];
 
 export default function Navbar() {
@@ -33,17 +32,6 @@ export default function Navbar() {
             <span className="sr-only">Open main menu</span>
             <Bars2Icon className="w-6 h-6" aria-hidden="true" />
           </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <NavLink
-              key={item.name}
-              to={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              {item.name}
-            </NavLink>
-          ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <NavLink
@@ -104,13 +92,5 @@ export default function Navbar() {
         </Dialog.Panel>
       </Dialog>
     </header>
-    // <nav className='flex justify-between'>
-    //   <div>
-    //     <h2>Wheel</h2>
-    //   </div>
-    //   <div className='w-4 h-6 cursor-pointer'>
-    //     <EllipsisHorizontalCircleIcon />
-    //   </div>
-    // </nav>
   );
 }
